@@ -22,6 +22,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       v.memory = 2048
       v.cpus = 2
   end
+  config.vm.provision "shell",
+        inline: "apt-get install -y ansible"
+
   config.vm.synced_folder "../ansible-clouds/", "/home/vagrant/ansible/", type: "rsync",
     rsync__exclude: ".git/"
 
