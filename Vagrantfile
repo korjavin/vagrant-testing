@@ -11,14 +11,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "debian-testing"
-  config.vm.network "private_network", ip: "192.168.50.4"
+  config.vm.network "private_network", ip: "192.168.50.5"
 
   if Vagrant.has_plugin?("vagrant-cachier")
       config.cache.scope = :box
   end
 
   config.vm.provider "virtualbox" do |v|
-      v.name = "ansible"
+      v.name = "ansible-local"
       v.memory = 2048
       v.cpus = 2
   end
