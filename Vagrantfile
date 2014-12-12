@@ -25,6 +25,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell",
         inline: "apt-get install -y ansible"
 
+  config.vm.provision "shell",
+        inline: "echo 127.0.0.1 >> /etc/ansible/hosts"
+
   config.vm.synced_folder "../ansible-clouds/", "/home/vagrant/ansible/", type: "rsync",
     rsync__exclude: ".git/"
 
